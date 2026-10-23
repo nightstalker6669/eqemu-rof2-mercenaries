@@ -1,0 +1,9 @@
+EQEmu RoF2 Mercenaries
+
+Production mercenary extension for EQEmu, targeting the May 10, 2013 RoF2 client.
+Upstream EQEmu copyright and GPLv3 notices are preserved in LICENSE and source.
+Requires the pinned shared infrastructure described in docs/INSTALL.md.
+Independent community project, not affiliated with Daybreak Games. EverQuest
+and related names are trademarks of their respective owners. No proprietary
+client executable, game archive, map, texture, packet capture or database is
+distributed. Protocol references record binary interfaces and emulator policy.

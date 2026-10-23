@@ -1,0 +1,658 @@
+{
+  "format_version": 1,
+  "artifact_sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+  "endianness": "little",
+  "payload_excludes_opcode_and_transport": true,
+  "offset_units": "bytes; decimal unless prefixed with 0x",
+  "native_acceptance": "CORE_ROF2_CASES_PASSED_2026-10-23",
+  "encoder_bounds": {
+    "rows": 100,
+    "grades": 10,
+    "stances_per_row": 10,
+    "name_content_bytes": 63
+  },
+  "server_owned_capacity": {
+    "compiled": 3,
+    "rule_default": 1,
+    "activation_sql_choice": 3,
+    "one_active": true,
+    "marketplace_entitlement": false
+  },
+  "local_confirmation_flags": {
+    "not_wire_fields": true,
+    "transfer_type": 0,
+    "unshroud_type": 1,
+    "accept_or_upgrade_mask": 5,
+    "decline_or_dismiss_mask": 10,
+    "unshroud_cancel_mask": 2
+  },
+  "layouts": {
+    "empty": {
+      "native_payload_bytes": 0
+    },
+    "liaison_request": {
+      "bytes": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "liaison_runtime_entity_id"
+        }
+      ]
+    },
+    "hire_request": {
+      "bytes": 16,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "template_id"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "initial_stance_index",
+          "notes": "Proven merchant stance list index; not a payment selector"
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "liaison_runtime_entity_id"
+        },
+        {
+          "offset": 12,
+          "type": "u8",
+          "name": "native_initialized_zero"
+        },
+        {
+          "offset": 13,
+          "type": "bytes[3]",
+          "name": "unspecified_stack_bytes",
+          "notes": "Do not validate reserved-zero"
+        }
+      ]
+    },
+    "hire_result": {
+      "bytes": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "result"
+        }
+      ],
+      "result_codes": {
+        "0": "success notification",
+        "1": "insufficient funds",
+        "2": "mercenary does not exist",
+        "3": "failed spawn",
+        "4": "raid prohibited",
+        "5": "pending purchase",
+        "6": "maximum owned",
+        "7": "group full",
+        "8": "combat",
+        "9": "recent dismissal cooldown",
+        "10": "creation error",
+        "11": "upkeep paid using coins",
+        "12": "upkeep paid using alternate currency",
+        "13": "insufficient upkeep funds",
+        "14": "upkeep waived",
+        "15": "upcoming suspension for insufficient funds",
+        "16": "no liaison",
+        "17": "liaison too distant",
+        "18": "requirements",
+        "19": "cannot interact",
+        "20": "membership",
+        "21": "Gold membership",
+        "22": "Silver membership"
+      }
+    },
+    "shared_row": {
+      "prefix_bytes": 58,
+      "length_expression": "58 + name_content_bytes + 1 + 8 * stance_count",
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "template_id"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "type_id"
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "subtype_id"
+        },
+        {
+          "offset": 12,
+          "type": "u32",
+          "name": "purchase_cost_gold"
+        },
+        {
+          "offset": 16,
+          "type": "u32",
+          "name": "upkeep_cost_gold"
+        },
+        {
+          "offset": 20,
+          "type": "u32",
+          "name": "status"
+        },
+        {
+          "offset": 24,
+          "type": "u32",
+          "name": "alternate_purchase_cost"
+        },
+        {
+          "offset": 28,
+          "type": "u32",
+          "name": "alternate_upkeep_cost"
+        },
+        {
+          "offset": 32,
+          "type": "u32",
+          "name": "alternate_currency_id"
+        },
+        {
+          "offset": 36,
+          "type": "u8",
+          "name": "unknown36"
+        },
+        {
+          "offset": 37,
+          "type": "i32",
+          "name": "time_left_ms"
+        },
+        {
+          "offset": 41,
+          "type": "u32",
+          "name": "command_state",
+          "notes": "Historical MerchantSlot; echoed as Command word 0"
+        },
+        {
+          "offset": 45,
+          "type": "u32",
+          "name": "selected_stance_index",
+          "notes": "Historical MercUnk02; index into advertised stance list"
+        },
+        {
+          "offset": 49,
+          "type": "u32",
+          "name": "stance_count"
+        },
+        {
+          "offset": 53,
+          "type": "u32",
+          "name": "unknown53"
+        },
+        {
+          "offset": 57,
+          "type": "u8",
+          "name": "auto_assist",
+          "notes": "0 off / 1 on; native row+0x38 copied to active wrapper+0x44; checkbox refreshes on roster event19; every owned row carries the persisted character preference"
+        },
+        {
+          "offset": 58,
+          "type": "nul_string",
+          "name": "name",
+          "notes": "At most 63 content bytes in encoder"
+        },
+        {
+          "offset": "after_name",
+          "type": "array",
+          "name": "stances",
+          "notes": "stance_count pairs: u32 index, u32 stance_id"
+        }
+      ],
+      "native_reader": "0x569cf0",
+      "native_in_memory_stride": 208,
+      "per_row_capacity_trailer": false
+    },
+    "offers": {
+      "length_expression": "8 + 4 * grade_count + sum(shared_row_lengths)",
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "grade_count"
+        },
+        {
+          "offset": 4,
+          "type": "u32[grade_count]",
+          "name": "grade_ids"
+        },
+        {
+          "offset": "4+4*grade_count",
+          "type": "u32",
+          "name": "offer_count"
+        },
+        {
+          "offset": "8+4*grade_count",
+          "type": "shared_row[offer_count]",
+          "name": "offers"
+        }
+      ],
+      "consumer": "0x568670"
+    },
+    "owned_roster": {
+      "length_expression": "12 + sum(shared_row_lengths)",
+      "fields": [
+        {
+          "offset": 0,
+          "type": "i32",
+          "name": "selected_packed_index",
+          "notes": "-1 means none; not durable storage slot"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "owned_count"
+        },
+        {
+          "offset": 8,
+          "type": "shared_row[owned_count]",
+          "name": "owned_rows"
+        },
+        {
+          "offset": "8+sum(shared_row_lengths)",
+          "type": "u32",
+          "name": "available_capacity",
+          "notes": "Exactly once after all rows"
+        }
+      ],
+      "consumer": "0x5684a0",
+      "empty_shape": [
+        "-1",
+        "0",
+        "available_capacity"
+      ]
+    },
+    "command_request": {
+      "bytes": 8,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "command_state"
+        },
+        {
+          "offset": 4,
+          "type": "i32",
+          "name": "selected_stance_index"
+        }
+      ],
+      "known_observed_values": [
+        0,
+        1,
+        5,
+        20,
+        36
+      ],
+      "dismiss_command": 1,
+      "other_value_semantics": "not all established; lifecycle state and stance index remain separate"
+    },
+    "command_feedback_partial": {
+      "minimum_consumed_bytes": 4,
+      "exact_payload_length": null,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "event16_value"
+        }
+      ],
+      "status": "native consumer reads first word; full reply schema unresolved"
+    },
+    "action_marker": {
+      "bytes": 1,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u8",
+          "name": "action_marker",
+          "notes": "Native literal 0x30, not a Boolean direction"
+        }
+      ],
+      "native_hex": "30"
+    },
+    "auto_assist": {
+      "bytes": 1,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u8",
+          "name": "enabled"
+        }
+      ],
+      "allowed_values": [
+        0,
+        1
+      ]
+    },
+    "event25_byte": {
+      "minimum_consumed_bytes": 1,
+      "server_payload_bytes": 1,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u8",
+          "name": "event25_value",
+          "notes": "Consumed and cloned into native event +0x1c; final semantics unresolved"
+        }
+      ]
+    },
+    "timer": {
+      "bytes": 20,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u8",
+          "name": "has_mercenary"
+        },
+        {
+          "offset": 1,
+          "type": "bytes[3]",
+          "name": "unused_by_consumer",
+          "notes": "Server normalizes enclosing word to 0 or 1"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "full_upkeep_period_ms",
+          "note": "Configured billing period; exact remaining countdown is carried separately by OP_MercenaryTimerUpdate."
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "restore_interval_ms"
+        },
+        {
+          "offset": 12,
+          "type": "u32",
+          "name": "lifecycle_state"
+        },
+        {
+          "offset": 16,
+          "type": "u32",
+          "name": "restore_deadline",
+          "notes": "Current server uses Unix seconds; do not infer arbitrary native clock equivalence"
+        }
+      ],
+      "known_states": {
+        "1": "suspended",
+        "5": "normal"
+      },
+      "consumer": "0x567ca0"
+    },
+    "restore_deadline": {
+      "bytes": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "restore_deadline"
+        }
+      ],
+      "effect": "sets lifecycle state 1"
+    },
+    "unsuspend_notification": {
+      "native_payload_bytes_read": 0,
+      "server_payload_bytes": 1,
+      "effect": "sets lifecycle state 5; samples native clock"
+    },
+    "switch_request": {
+      "bytes": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "packed_owned_row_index"
+        }
+      ]
+    },
+    "switch_result": {
+      "bytes": 12,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "unresolved",
+          "notes": "Not consumed by 0x5680c0; server emits 0"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "delay",
+          "notes": "Native clock delta; server currently sends 0"
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "result"
+        }
+      ],
+      "result_codes": {
+        "0": "success",
+        "1": "not fast regeneration",
+        "2": "cannot unsuspend selected",
+        "3": "selected slot unavailable",
+        "4": "current mercenary dead",
+        "5": "cannot switch now"
+      }
+    },
+    "transfer": {
+      "bytes": 28,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "original_owner_runtime_entity_id"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "recipient_runtime_entity_id"
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "upgrade_cost_gold"
+        },
+        {
+          "offset": 12,
+          "type": "u32",
+          "name": "alternate_cost"
+        },
+        {
+          "offset": 16,
+          "type": "u32",
+          "name": "alternate_currency_id"
+        },
+        {
+          "offset": 20,
+          "type": "u8",
+          "name": "alternate_cost_mode"
+        },
+        {
+          "offset": 21,
+          "type": "bytes[3]",
+          "name": "unresolved"
+        },
+        {
+          "offset": 24,
+          "type": "u32",
+          "name": "result_or_acceptance"
+        }
+      ],
+      "initial_request": "All bytes zero except runtime entity IDs at 0 and 4",
+      "acceptance_result": {
+        "0": "accept",
+        "1": "decline"
+      },
+      "server_result_codes": {
+        "0": "transferred",
+        "1": "denied",
+        "2": "recipient must be grouped",
+        "3": "recipient full",
+        "4": "recipient pending",
+        "5": "requirements",
+        "6": "membership",
+        "7": "both parties fast regeneration required",
+        "8": "cannot transfer"
+      },
+      "security": "Server binds pending owner, recipient, selected MercID, slots, template, stance, levels, fee, sessions, and expiry; wire echoes are not authority"
+    },
+    "death_restore_deadline": {
+      "bytes": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "restore_deadline"
+        }
+      ],
+      "effect": "sets state 0; native UI displays Revive"
+    },
+    "restricted_notification": {
+      "native_payload_bytes_read": 0,
+      "server_payload_bytes": 0,
+      "effect": "sets state 2; native UI disables unsuspend in this zone"
+    },
+    "restoration_ready": {
+      "native_payload_bytes_read": 0,
+      "server_payload_bytes": 0,
+      "effect": "clears restoration deadline and emits event 8"
+    },
+    "upkeep_paid": {
+      "bytes": 1,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u8",
+          "name": "paid_with_alternate_currency"
+        }
+      ],
+      "effect": "sets state 5, samples native clock, formats charged-upkeep message",
+      "values": {
+        "0": "gold coin",
+        "nonzero": "alternate currency"
+      },
+      "waiver": "Do not send as proof of zero/waived payment"
+    },
+    "current_costs": {
+      "bytes": 16,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "purchase_gold"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "purchase_alternate"
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "upkeep_gold"
+        },
+        {
+          "offset": 12,
+          "type": "u32",
+          "name": "upkeep_alternate"
+        }
+      ]
+    },
+    "currency_message": {
+      "minimum_bytes": 9,
+      "length_expression": "8 + prefix_content_bytes + 1",
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u8",
+          "name": "plural"
+        },
+        {
+          "offset": 1,
+          "type": "bytes[3]",
+          "name": "not_consumed"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "currency_id",
+          "notes": "Zero uses current row alternate currency"
+        },
+        {
+          "offset": 8,
+          "type": "nul_string",
+          "name": "prefix"
+        }
+      ],
+      "rendering": "prefix + resolved currency name + period",
+      "maximum_prefix_bytes": "not recovered; any producer must apply its own bound"
+    },
+    "remaining_upkeep": {
+      "bytes": 4,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "remaining_milliseconds"
+        }
+      ],
+      "effect": "sets remaining upkeep and samples native clock"
+    },
+    "unshroud": {
+      "bytes": 120,
+      "fields": [
+        {
+          "offset": 0,
+          "type": "u32",
+          "name": "gold_cost"
+        },
+        {
+          "offset": 4,
+          "type": "u32",
+          "name": "alternate_cost"
+        },
+        {
+          "offset": 8,
+          "type": "u32",
+          "name": "old_mercenary_level"
+        },
+        {
+          "offset": 12,
+          "type": "u32",
+          "name": "unshrouded_owner_level"
+        },
+        {
+          "offset": 16,
+          "type": "u32",
+          "name": "choice"
+        },
+        {
+          "offset": 20,
+          "type": "char[100]",
+          "name": "nul_terminated_message_prefix"
+        }
+      ],
+      "choices": {
+        "0": "upgrade",
+        "1": "dismiss"
+      },
+      "cancel": "No response packet",
+      "security": "No durable owner/MercID proven in consumed fields; complete shrouding workflow unimplemented"
+    }
+  },
+  "native_duration_safety": {
+    "local_buffer_bytes": 20,
+    "formatter": "0x564c40",
+    "unsafe": "Multiple nonzero hours/minutes/seconds after truncating milliseconds to seconds.",
+    "server_behavior": "Use bounded server chat instead of 0x5f88 or raw Hire results 11, 12, 14; preserve exact period and remaining countdown."
+  }
+}

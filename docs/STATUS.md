@@ -1,0 +1,11 @@
+# Validation status — October 23, 2026
+
+Core matching May10 2013 RoF2 acceptance passed on the deployed world/zone build. Three disposable clients exercised liaison offers, paid initial hire/stance, all four combat roles, Passive behavior, automatic/manual assistance, Puller healing override, healer buffs and accepted player resurrection, level100 caster fallback, Bayle-to-coin upkeep, Passive waiver, durable death/revival deadlines, capacity rejection, sparse slots, six-member group replacement, declined/accepted ownership transfer, zone restrictions and zoning/relog/server-restart persistence.
+
+Native billing checks caught and verified fixes for a restored partial countdown becoming the recurring interval, and the original client's unsafe mixed-unit duration formatter. A runtime interval change also exercised status prepublication before notifications. Blocked-zone explicit resume left the contract unchanged after reload/cooldown; restoring policy allowed explicit resume without automatic activation.
+
+Production source validation covered bounded wire layouts, actual handlers/rosters and lifecycle helpers under ASan/UBSan, resource/scaling boundaries, real-MariaDB atomic save/transfer rollback, stale guards/wallets, concurrent writers, process/connection failures and uncertain commit handling. These are evidence summaries; suites, fixtures and generated reports are not included in this public package.
+
+All disposable contracts were dismissed through native management. Clients logged out normally. Exact guarded cleanup removed all three test accounts/local logins/characters, their corpse and dependent data, nine client profile/UI/log files and the private credential manifest. Independent checks found no remaining test mercenaries, buffs, inventory sessions, leases or selection buckets. Original runtime price policy and the temporary zone permission were restored. Running world and six zones matched deployed binary hashes; login/UCS and login/world TCP checks passed.
+
+Package verification separately reconstructs the pinned companion baseline and checks/applies this production-only overlay and its hashes. Source installation verification is distinct from the earlier full builds and physical gameplay checks. Exact historical Live behavior outside the exercised core scope is not claimed; see [KNOWN-GAPS.md](KNOWN-GAPS.md).

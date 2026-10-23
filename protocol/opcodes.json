@@ -1,0 +1,520 @@
+{
+  "format_version": 1,
+  "artifact": {
+    "name": "eqgame.exe",
+    "build": "RoF2 May 10 2013",
+    "sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "address_basis": "preferred-image virtual addresses"
+  },
+  "native_acceptance": "CORE_ROF2_CASES_PASSED_2026-10-23",
+  "mapping_counts": {
+    "existing": 13,
+    "recovered": 14,
+    "total": 27
+  },
+  "messages": [
+    {
+      "canonical_name": "OP_MercenaryDataUpdateRequest",
+      "opcode": "0x7b89",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "empty"
+      },
+      "sender_or_site": "0x5646f0",
+      "consumer": null,
+      "implementation": "implemented",
+      "notes": "owned roster refresh",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryDataUpdate",
+      "opcode": "0x61a4",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "owned_roster"
+      },
+      "sender_or_site": null,
+      "consumer": "0x5684a0",
+      "implementation": "implemented",
+      "notes": "selected packed index, rows, one final capacity",
+      "rea_evidence_ids": [
+        "ev_160826389af067e945b53d50fd209ee81fe21cf46370994d0569292c03b197ef"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryDataRequest",
+      "opcode": "0x11c1",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "liaison_request"
+      },
+      "sender_or_site": "0x564770",
+      "consumer": null,
+      "implementation": "implemented",
+      "notes": "liaison runtime entity ID",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryDataResponse",
+      "opcode": "0x72ce",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "offers"
+      },
+      "sender_or_site": null,
+      "consumer": "0x568670",
+      "implementation": "implemented",
+      "notes": "grade list and offer rows",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryHire",
+      "opcode": "0x7169",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S",
+        "S2C"
+      ],
+      "layouts": {
+        "C2S": "hire_request",
+        "S2C": "hire_result"
+      },
+      "sender_or_site": "0x564dd0",
+      "consumer": "0x5695b0",
+      "implementation": "implemented",
+      "notes": "different request and response shapes",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryDismiss",
+      "opcode": "0x6e83",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S",
+        "S2C"
+      ],
+      "layouts": {
+        "C2S": "empty",
+        "S2C": "empty"
+      },
+      "sender_or_site": "0x566e7c",
+      "consumer": "0x567c00",
+      "implementation": "implemented",
+      "notes": "direct dismissal; management button can use Command=1",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryTimerRequest",
+      "opcode": "0x31e4",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "empty"
+      },
+      "sender_or_site": "0x566757",
+      "consumer": null,
+      "implementation": "implemented",
+      "notes": "native empty payload; server compatibility handler tolerates one byte",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryTimer",
+      "opcode": "0x0763",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "timer"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567ca0",
+      "implementation": "implemented",
+      "notes": "byte presence, full configured upkeep period, restoration interval, lifecycle, deadline; exact remaining exclusively via OP_MercenaryTimerUpdate",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryUnknown1",
+      "opcode": "0x5d26",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "event25_byte"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567df0",
+      "implementation": "existing_compatibility_notification_semantics_unresolved",
+      "notes": "first byte preserved; final semantics unresolved",
+      "rea_evidence_ids": [
+        "ev_23e55a67f4507362a3fcca433861b59d3070c2e3ed4b18fcec5b2ab12130d2f4"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryCommand",
+      "opcode": "0x27f2",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S",
+        "S2C"
+      ],
+      "layouts": {
+        "C2S": "command_request",
+        "S2C": "command_feedback_partial"
+      },
+      "sender_or_site": "0x6e5f79",
+      "consumer": "0x567ea0",
+      "implementation": "implemented",
+      "notes": "incoming feedback first word only established; server handles requests",
+      "rea_evidence_ids": [
+        "ev_35b148d4069088436c75c7a3661f8ab4d5d5560cafee915d6295728933b01626"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenarySuspendRequest",
+      "opcode": "0x4407",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "action_marker"
+      },
+      "sender_or_site": "0x5652a2",
+      "consumer": null,
+      "implementation": "implemented",
+      "notes": "literal 0x30; direction follows server state",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenarySuspendResponse",
+      "opcode": "0x6f03",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "restore_deadline"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567500",
+      "implementation": "implemented",
+      "notes": "sets suspended state",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryUnsuspendResponse",
+      "opcode": "0x27a0",
+      "mapping_origin": "existing",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "unsuspend_notification"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567590",
+      "implementation": "implemented",
+      "notes": "consumer reads no payload; server emits one byte",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryAutoAssist",
+      "opcode": "0x0b72",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "auto_assist"
+      },
+      "sender_or_site": "0x5670a0",
+      "consumer": null,
+      "implementation": "implemented",
+      "notes": "persistent Boolean preference",
+      "rea_evidence_ids": [
+        "ev_ab9bc1cd91d5fb23f9df60bb30adfee462f63ee6ce9289427f70c7db99475ebc"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryAssist",
+      "opcode": "0x7e6f",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "action_marker"
+      },
+      "sender_or_site": "0x564e90",
+      "consumer": null,
+      "implementation": "implemented",
+      "notes": "manual Call for Assist",
+      "rea_evidence_ids": [
+        "ev_b01abb8f0d8df293d5c04b5279cc47918bb9bed998a36fd06e2581c529d10352"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenarySwitch",
+      "opcode": "0x1b37",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "C2S",
+        "S2C"
+      ],
+      "layouts": {
+        "C2S": "switch_request",
+        "S2C": "switch_result"
+      },
+      "sender_or_site": "0x564a70",
+      "consumer": "0x5680c0",
+      "implementation": "implemented",
+      "notes": "packed index and native result",
+      "rea_evidence_ids": [
+        "ev_beb5ade8fb502b71fa7b2d998eae58709e65fb8436321a5e209c387e231dc3f8"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryTransferRequest",
+      "opcode": "0x5df8",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "C2S",
+        "S2C"
+      ],
+      "layouts": {
+        "C2S": "transfer",
+        "S2C": "transfer"
+      },
+      "sender_or_site": "0x564f20",
+      "consumer": "0x565320",
+      "implementation": "implemented",
+      "notes": "owner request and delivered invitation",
+      "rea_evidence_ids": [
+        "ev_1b619eacdf8cb6920d4ed259753390d4a897a8552ecb954daa0584a8c5c819dd"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryTransferResponse",
+      "opcode": "0x4333",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "C2S",
+        "S2C"
+      ],
+      "layouts": {
+        "C2S": "transfer",
+        "S2C": "transfer"
+      },
+      "sender_or_site": "0x5682b0",
+      "consumer": "0x565560",
+      "implementation": "implemented",
+      "notes": "bound acceptance and result",
+      "rea_evidence_ids": [
+        "ev_29b6f41c15f8e82feac9b1b2454150af534d77fa879c45b1f1f8154dcb298bea"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryUnshroud",
+      "opcode": "0x69ca",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "unshroud"
+      },
+      "sender_or_site": null,
+      "consumer": "0x5662f0",
+      "implementation": "mapped_only_general_shrouding_not_implemented",
+      "notes": "mapped and decoded; complete general shrouding workflow unimplemented",
+      "rea_evidence_ids": [
+        "ev_b1d4aa6633246c1f7b446f7f070f8b9fca13577e0cc33f683ab8f4f4c7687f87"
+      ]
+    },
+    {
+      "canonical_name": "OP_MercenaryUnshroudResponse",
+      "opcode": "0x6e9f",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "C2S"
+      ],
+      "layouts": {
+        "C2S": "unshroud"
+      },
+      "sender_or_site": "0x5682b0",
+      "consumer": null,
+      "implementation": "mapped_only_general_shrouding_not_implemented",
+      "notes": "mapped and decoded; complete general shrouding workflow unimplemented",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryDead",
+      "opcode": "0x038f",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "death_restore_deadline"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567890",
+      "implementation": "implemented",
+      "notes": "death/revive-needed notification; state0",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryRestricted",
+      "opcode": "0x0e52",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "restricted_notification"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567920",
+      "implementation": "implemented",
+      "notes": "zone-restricted suspension; state2",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryRestoreReady",
+      "opcode": "0x2749",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "restoration_ready"
+      },
+      "sender_or_site": null,
+      "consumer": "0x5677e0",
+      "implementation": "implemented",
+      "notes": "clears restoration deadline",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryUpkeep",
+      "opcode": "0x5f88",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "upkeep_paid"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567710",
+      "implementation": "implemented",
+      "notes": "charged-upkeep notification; alternate-payment flag",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryCostUpdate",
+      "opcode": "0x3cbc",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "current_costs"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567ff0",
+      "implementation": "implemented",
+      "notes": "updates four current cost values",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryCurrencyMessage",
+      "opcode": "0x29ec",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "currency_message"
+      },
+      "sender_or_site": null,
+      "consumer": "0x565890",
+      "implementation": "mapped_typed_layout_available_no_current_emitter",
+      "notes": "prefix followed by resolved currency name",
+      "rea_evidence_ids": []
+    },
+    {
+      "canonical_name": "OP_MercenaryTimerUpdate",
+      "opcode": "0x2b4f",
+      "mapping_origin": "recovered",
+      "native_directions": [
+        "S2C"
+      ],
+      "layouts": {
+        "S2C": "remaining_upkeep"
+      },
+      "sender_or_site": null,
+      "consumer": "0x567650",
+      "implementation": "implemented",
+      "notes": "remaining upkeep time and native clock sample",
+      "rea_evidence_ids": []
+    }
+  ],
+  "unassigned_incoming_manager_cases": [
+    {
+      "opcode": "0x20b9",
+      "consumer": "0x567a20",
+      "semantic_name": null,
+      "status": "unresolved; no speculative canonical mapping"
+    }
+  ],
+  "unassigned_outgoing_candidates": [
+    {
+      "opcode": "0x4820",
+      "sender": "0x566740",
+      "send_site": "0x5667d3",
+      "setup_caller": "0x49c7c6",
+      "payload_hex": "08000000",
+      "status": "constant-8 initialization candidate; semantic name and reply requirement unproven",
+      "rea_evidence_id": "ev_7cc2fbbc9b86e8334799f298b67a49773bd06eef0c74aab430294b610f4b1877"
+    }
+  ],
+  "evidence": {
+    "dispatch": "ev_e40b77bd6c520f8682d59ae54b67a87bc8c9ebf8801c657393dbb26b980a3ea4",
+    "0x5670a0": "ev_ab9bc1cd91d5fb23f9df60bb30adfee462f63ee6ce9289427f70c7db99475ebc",
+    "0x564e90": "ev_b01abb8f0d8df293d5c04b5279cc47918bb9bed998a36fd06e2581c529d10352",
+    "0x566740": "ev_7cc2fbbc9b86e8334799f298b67a49773bd06eef0c74aab430294b610f4b1877",
+    "0x565320": "ev_1b619eacdf8cb6920d4ed259753390d4a897a8552ecb954daa0584a8c5c819dd",
+    "0x5684a0": "ev_160826389af067e945b53d50fd209ee81fe21cf46370994d0569292c03b197ef",
+    "0x5680c0": "ev_beb5ade8fb502b71fa7b2d998eae58709e65fb8436321a5e209c387e231dc3f8",
+    "0x5662f0": "ev_b1d4aa6633246c1f7b446f7f070f8b9fca13577e0cc33f683ab8f4f4c7687f87",
+    "0x565560": "ev_29b6f41c15f8e82feac9b1b2454150af534d77fa879c45b1f1f8154dcb298bea",
+    "0x567ea0": "ev_35b148d4069088436c75c7a3661f8ab4d5d5560cafee915d6295728933b01626",
+    "0x567df0": "ev_23e55a67f4507362a3fcca433861b59d3070c2e3ed4b18fcec5b2ab12130d2f4",
+    "0x569cf0": "ev_b8ba5bd30aa06a970138ab0b07d601a43a0564bcd1b9b8c050b4a945c5d7f836",
+    "0x56bf90": "ev_863395a4345df11c9f4c82ee2695717535d63303b56ee8c27df493e16e386dc4"
+  },
+  "later_client_boundary": {
+    "feature": "Call of the Forsaken mercenary AA and player-equipped mercenary gear",
+    "official_announcement": "https://www.everquest.com/news/call-of-the-forsaken-mercenary-aa-equipment",
+    "announcement_date": "2013-10-01",
+    "release_date": "2013-10-08",
+    "implemented": false
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "upstream_repository": "https://github.com/EQEmu/EQEmu",
+  "upstream_commit": "8175ae61874cbf20d7b05102821f6f8a4f4d1c39",
+  "housing_repository": "https://github.com/nightstalker6669/eqemu-rof2-housing",
+  "housing_commit": "9aad4cc0857bdd14677dd45ab24f3eafe20d489b",
+  "fellowship_repository": "https://github.com/nightstalker6669/eqemu-rof2-fellowship",
+  "fellowship_commit": "9382453264f4f84ac7e83a9ee5c9c9a1391c6017",
+  "publication_date": "2026-10-23",
+  "scope": "Production mercenary code, SQL, integration patch, installer and protocol/gameplay documentation. No suites, fixtures, reports, logs, credentials, client assets or personal runtime configuration. Unrelated petition changes excluded.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 56,
+      "sha256": "1775e6c2d1445657e83349bf1effbf7ecd1a2cb048567eb96a609d5efe48b0be"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 40,
+      "sha256": "8bc8d3c836921f3449869d3cded2d16e0b2ccc3505301ed55d642fe59f34fd1d"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "NOTICE",
+      "bytes": 567,
+      "sha256": "9e52528fd3335719e1c97ca59a72957b1f9f461a683a20adef992ecf4832877d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5161,
+      "sha256": "3fdfe15a43f0df68f2a7e975038e5e93bd2b332b644db1913737d9ead47742f6"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 3171,
+      "sha256": "7e6883300a85dff40266709cf21547933cb6f9eb97cfe95e04a62aa46d550316"
+    },
+    {
+      "path": "docs/GAMEPLAY.md",
+      "bytes": 21289,
+      "sha256": "55d7d8daab69ab99f7f30c601c3f4bb99dcfa575995ce75e1f300aa9e6c192bf"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "bytes": 5634,
+      "sha256": "ef388844bb7955ea959e93483f4d37aab7337689bbd5b65f7fca568f16afed39"
+    },
+    {
+      "path": "docs/KNOWN-GAPS.md",
+      "bytes": 1789,
+      "sha256": "99beb407a4ce086d39dc0c04c4fed4f6e83dc5f0ab0554a8321dde2a2712e210"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "bytes": 2363,
+      "sha256": "d1f2e3361c0e1ae30e527f8e6698a16ff4f7a6c900c017d7a5999e34cbad5c0b"
+    },
+    {
+      "path": "overlay/common/mercenary/PROTOCOL.md",
+      "bytes": 22137,
+      "sha256": "eb4f7779a1aa70dfd9fda8c9032d649734defd03b71e2496e00d4903a765e1d7"
+    },
+    {
+      "path": "overlay/common/mercenary/README.md",
+      "bytes": 21259,
+      "sha256": "dcaf4b07eb59ce4034f41a34e654cd8b922d464a191ff16925b97508a429bd73"
+    },
+    {
+      "path": "overlay/common/mercenary/rof2_opcodes.json",
+      "bytes": 15272,
+      "sha256": "206dbd2bd82f247176bfd1c085c134176c78812980c918c82913b1bb4df44cf6"
+    },
+    {
+      "path": "overlay/common/mercenary/rof2_timer.h",
+      "bytes": 408,
+      "sha256": "599c416bf7d5482c88d1b3d30d97ea2ded875ad3386111e6e7fd3793ed6cebc5"
+    },
+    {
+      "path": "overlay/common/mercenary/rof2_wire.h",
+      "bytes": 2427,
+      "sha256": "7374b92b32076be8da4bf8cc957d5f3af9f036469955add6d0eb11b6755b283f"
+    },
+    {
+      "path": "overlay/common/mercenary/wire-layouts.json",
+      "bytes": 16429,
+      "sha256": "e0fbdbfc1e07c68b41272cc4144c3a6057139f6d71c5ebc67cefd6e829ad9b84"
+    },
+    {
+      "path": "overlay/utils/sql/mercenary/001_owned_roster.sql",
+      "bytes": 1030,
+      "sha256": "98f351ed194ec5a7727ce989d03febd1812cc48b2f93aa625327ec6eb0e18322"
+    },
+    {
+      "path": "overlay/utils/sql/mercenary/002_enable_rof2.sql",
+      "bytes": 1022,
+      "sha256": "0721a62aa29bebf4238c4293fa23a261c1a48de740b58c02e52fbd3d8bd9e76e"
+    },
+    {
+      "path": "overlay/utils/sql/mercenary/003_passive_upkeep.sql",
+      "bytes": 771,
+      "sha256": "dbd02ec1b59a97a501569d08ccd6d7f8e369b19479d0e263e14e2d9ae2abaf1f"
+    },
+    {
+      "path": "overlay/utils/sql/mercenary/004_zone_permissions.sql",
+      "bytes": 887,
+      "sha256": "9e3a6740f485aacedd683590bb7260ccf75553ab4c8b0e52e70f5567bd9d1efb"
+    },
+    {
+      "path": "overlay/zone/client_mercenary_transfer.cpp",
+      "bytes": 18621,
+      "sha256": "c3556f853b4cd522b255e772d13a5152fa3a74ecd82f1968e5da9eff2f35aad4"
+    },
+    {
+      "path": "overlay/zone/client_mercenary_transfer.h",
+      "bytes": 454,
+      "sha256": "66c9bb7b712fc52c041183932135d5cfeb8bc024bd58a55c748c934184fcc5bb"
+    },
+    {
+      "path": "overlay/zone/mercenary_runtime.h",
+      "bytes": 1012,
+      "sha256": "f121723461050ea8364598bcf39870c84f78fcaca3f15a1f1131395627ea83a5"
+    },
+    {
+      "path": "overlay/zone/mercenary_scaling.h",
+      "bytes": 1752,
+      "sha256": "23bafd96f91cb8961db7ade937b147a3f6704a4a98a8106617b275358816ca24"
+    },
+    {
+      "path": "overlay/zone/mercenary_transaction.h",
+      "bytes": 688,
+      "sha256": "05b6b9f63aa7e2ddbb04145ac967ce79d48e5c5555399bfe1b04d22b758f76b5"
+    },
+    {
+      "path": "patches/base-manifest.json",
+      "bytes": 61731,
+      "sha256": "db8a395847f30d18a0bb82e49b4fb8b9bb5aa63015ff90eed965e9e37982e6fa"
+    },
+    {
+      "path": "patches/eqemu-mercenaries.patch",
+      "bytes": 144861,
+      "sha256": "9be55a9d589992afaac0dd2c753275335b85ce13306d7418d1f24173bc8360c5"
+    },
+    {
+      "path": "protocol/EVIDENCE.md",
+      "bytes": 1633,
+      "sha256": "5a6612ed5600e5532e675c2223b66aa12cd2fc26ac4b0f8678e70c825a264c58"
+    },
+    {
+      "path": "protocol/OPCODES.md",
+      "bytes": 2345,
+      "sha256": "247039623f513cfb2ad1d5b4d0afab0d5832a4cfda2967f5ccb815c84174ddf7"
+    },
+    {
+      "path": "protocol/STRUCTS.md",
+      "bytes": 22132,
+      "sha256": "ee368f019270592685d62c4915d098bc8fda37caf84525ad28c7585030d33f80"
+    },
+    {
+      "path": "protocol/opcodes.json",
+      "bytes": 15272,
+      "sha256": "206dbd2bd82f247176bfd1c085c134176c78812980c918c82913b1bb4df44cf6"
+    },
+    {
+      "path": "protocol/wire-layouts.json",
+      "bytes": 16429,
+      "sha256": "e0fbdbfc1e07c68b41272cc4144c3a6057139f6d71c5ebc67cefd6e829ad9b84"
+    },
+    {
+      "path": "tools/apply_overlay.py",
+      "bytes": 3502,
+      "sha256": "b879041e1e894ecc971f1005241a15cc383677ffae2377305b42cfc06b43d8d5"
+    }
+  ]
+}
